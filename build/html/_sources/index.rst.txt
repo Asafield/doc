@@ -15,7 +15,7 @@ Welcome to Asafield's Blog's documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: 线下赛:
    
    first
 ..
