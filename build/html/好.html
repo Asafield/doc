@@ -1,0 +1,434 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>技术报告 &mdash; Asafield&#39;s Blog 1.0 文档</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="prev" title="智能驾驶小车ros示例代码介绍" href="first.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Asafield's Blog
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="first.html">智能驾驶小车ros示例代码介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first.html#id20">修改记录</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">技术报告</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">项目背景和意义</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">项目方案设计</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">项目算法功能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">项目实施过程</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Asafield's Blog</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>技术报告</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/好.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="contents topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#id1" id="id18">技术报告</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id2" id="id19">项目背景和意义</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id20">项目方案设计</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id21">项目算法功能</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id22">项目实施过程</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h1><a class="toc-backref" href="#id18">技术报告</a><a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>[TOC]</p>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id19">项目背景和意义</a><a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>概述项目背景和意义</p></li>
+<li><p>项目所要解决的问题</p></li>
+<li><p>创新点</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id20">项目方案设计</a><a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>方案的设计思路</p></li>
+<li><p>方案的对比</p></li>
+<li><p>采用方案的特点</p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id21">项目算法功能</a><a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>算法和模型以及所实现的功能介绍</p></li>
+<li><p>算法实现思路或算法优化思路</p></li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2><a class="toc-backref" href="#id22">项目实施过程</a><a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>项目方案的具体实现过程及步骤</p>
+<p>​
+<strong>通过对比并决定了最终的方案设计之后，就进入到了方案的实现环节。具体的实施过程包括对数据的采集和处理、各种分析工具的使用和对比，同时，也遇到了一些问题，通过多次的尝试和不断的测试，在解决一个个问题的基础之上完成了整个方案的优化和实现。</strong></p>
+<ul>
+<li><p>数据的采集、处理</p>
+<p><strong>数据采集-传感器</strong></p>
+<ul>
+<li><p>激光雷达</p>
+<p>​
+对于运动中的机器人来说，对周围障碍物的位置的识别，空间的轮廓信息的获取是非常重要的，同时，这对于机器人创建地图一个导航定位来说，也是不可或缺的。而通过激光雷达获取这些信息自然是不二之选，从而测量机器人和周围环境的距离，并通过LaserScan的话题类型发布数据。</p>
+<div class="figure align-default" id="id6">
+<img alt="激光雷达图" src="_images/image-20210313133146781.png" />
+<p class="caption"><span class="caption-text">激光雷达图</span><a class="headerlink" href="#id6" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+<li><p>里程计</p>
+<p>​
+里程计通过传感器收集数据来估计机器人在里程计坐标系中的随着时间变化的位置，常见的里程计有激光里程计，轮式里程计等等。但是这些里程计都会随着时间产生累计误差。需要ekf(扩展卡尔曼滤波)以及
+amcl(自适应的蒙特卡洛定位法)定位并纠正误差。而本次仿真使用的是由gazebo插件提供的里程计，基于直接读取在gazebo仿真世界中的坐标进行定位，理论上来说不存在误差，因此用作机器人的定位非常精准，也应此放弃使用ekf融合数据，但保留amcl用以发布map坐标系到odom坐标系的tf转换。</p>
+<div class="figure align-default" id="id7">
+<img alt="里程计数据" src="_images/image-20210313135110711.png" />
+<p class="caption"><span class="caption-text">里程计数据</span><a class="headerlink" href="#id7" title="永久链接至图片">¶</a></p>
+</div>
+<p>​</p>
+</li>
+<li><p>tf变换</p>
+<p>​
+在仿真世界中，机器人各个组件之间、机器人本身与外界环境之间的相对位置关系是通过坐标变换实现的。在本次方案设计中，涉及到坐标变换的，主要有机器人本身的xacro模型文件中的坐标系，以及odom里程计坐标系和map世界坐标系。其中，机器人各个组件的坐标变换由robot_state_publisher节点发布；odom坐标系由gazebo插件发布;map坐标系由amcl发布。这样，整个仿真的tf变换关系就搭建完成了：</p>
+<div class="figure align-default" id="id8">
+<img alt="tf变换" src="_images/image-20210313143955933.png" />
+<p class="caption"><span class="caption-text">tf变换</span><a class="headerlink" href="#id8" title="永久链接至图片">¶</a></p>
+</div>
+<div class="figure align-default" id="id9">
+<img alt="示例" src="_images/image-20210313144425242.png" />
+<p class="caption"><span class="caption-text">示例</span><a class="headerlink" href="#id9" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+</ul>
+</li>
+<li><p>分析工具的使用</p>
+<ul>
+<li><p>rqt工具</p>
+<ul>
+<li><p>rqt_graph（数据绘图工具）
+rqt_graph是可以将当前ROS系统中的计算图通过图形化的方式展示出来的工具。在使用时，可以直观的展示所有启动的节点和话题，并将各节点之间消息流清晰的展示出来。</p>
+<div class="figure align-default" id="id10">
+<img alt="rqt_graph" src="_images/image-20210313152133793.png" />
+<p class="caption"><span class="caption-text">rqt_graph</span><a class="headerlink" href="#id10" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line">rqt_plot(计算图可视化工具)
+rqt_plot是一个非常方便的曲线绘制工具，可以将一些消息数据以随时间变化的曲线绘制出来。是一种非常方便的数据可视化工具，本次设计中常在速度调试时使用改工具。</div>
+<div class="line"><img alt="rqt_plot" src="_images/image-20210313150645850.png" /></div>
+</div>
+</li>
+<li><p>rqt_reconfigure(参数动态配置工具)</p>
+<p>rqt_reconfigure是可以在不重新启动仿真的情况下情况下，进行参数的动态配置的工具。在本次设计中，对于数量较多的参数，类似move_base功能包的参数，尤其是teb_local_planner相关参数，使用此工具进行配置十分便捷。</p>
+<div class="figure align-default" id="id11">
+<img alt="image-20210313153716320" src="_images/image-20210313153716320.png" />
+<p class="caption"><span class="caption-text">image-20210313153716320</span><a class="headerlink" href="#id11" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+<li><p>rqt_tf_tree（tf变换查看工具）</p>
+<p>rqt_tf_tree可以通过命令查看当前仿真中建立的tf坐标变换，直观而简洁地展示整个仿真世界中的坐标系之间的关系。</p>
+<div class="figure align-default" id="id12">
+<img alt="image-20210313154055887" src="_images/image-20210313154055887.png" />
+<p class="caption"><span class="caption-text">image-20210313154055887</span><a class="headerlink" href="#id12" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>建图</p>
+<p>建图采用的算法是cartographer算法，是基于图网络的优化方法，对于内存和计算资源的要求更低。主要分为local
+slam和global slam两部分，在local
+slam中，依靠传感器（里程计和imu）数据进行轨迹推算，得出机器人的位姿估计。并通过雷达数据进行滤波和叠加后形成一系列的子图（submap）,而在global
+slam中，通过回环检测和后端优化得到一张完整的地图。</p>
+<div class="figure align-default" id="id13">
+<img alt="cartographer" src="_images/csdn.png" />
+<p class="caption"><span class="caption-text">cartographer</span><a class="headerlink" href="#id13" title="永久链接至图片">¶</a></p>
+</div>
+<ul>
+<li><p>cartographer配置运行</p>
+<p>cartographer的配置主要是通过lua文件和launch文件完成的，其中最主要就是配置好lua中的参数。</p>
+<p>cartographer建图过程</p>
+<div class="figure align-default" id="id14">
+<img alt="cartographer建图过程" src="_images/image-20210313162402351.png" />
+<p class="caption"><span class="caption-text">cartographer建图过程</span><a class="headerlink" href="#id14" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+</ul>
+</li>
+<li><p>导航</p>
+<p>本次设计导航依靠的主要功能包是move_base，其中全局路径规划和实施路径规划采用global
+planner和local planer，运动控制采用teb local
+planner的参数调节和自己编写的控制算法结合的方式。</p>
+<ul>
+<li><p>路径规划</p>
+<p>路径的算法采用Dijkstra算法，作为一种广度优先的算法，在这种地图不大，不需要太多的计算资源的仿真中无疑更有优势。在本次设计中，global
+planner 规划出一条全局路径，而local planner
+规划的局部路径在考虑实时避障的情况下尽量逼近全局路径。</p>
+<div class="figure align-default" id="id15">
+<img alt="路径规划" src="_images/image-20210313173044341.png" />
+<p class="caption"><span class="caption-text">路径规划</span><a class="headerlink" href="#id15" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+<li><p>控制算法</p>
+<p>机器人控制方面我们主要从三方面进行了考虑：</p>
+<ol class="arabic">
+<li><p>teb local
+planner：作为路径规划算法，teb也提供了大量的参数对机器人的速度、避障等方面进行调节，因此，要想控制好机器人的控制，是离不开对这些参数的优化的。</p></li>
+<li><p>skid_steer_drive_controller：本次线上比赛使用的机器人是四轮差速驱动的，而gazebo控制插件也并非常用的gazebo_ros_control，而是一个四轮驱动插件skid_steer_drive_controller，因此，要想控制好机器人，尤其是控制转弯，了解该插件控制四轮差速机器人的原理就变得非常重要了。</p>
+<div class="figure align-default" id="id16">
+<img alt="四轮驱动插件部分源码" src="_images/image-20210313170332441.png" />
+<p class="caption"><span class="caption-text">四轮驱动插件部分源码</span><a class="headerlink" href="#id16" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+<li><p>自编写控制算法：为了提升速度，需要对控制算法进行优化，其中最直接的就是直道加速，弯道减速了。而实现这种效果的方法很多，我们最后实现的是：通过选取机器人移动时前方一段路程的三个点作外接圆，其半径作为曲率半径，当前方一段路程的最小曲率半径达到某个值时，机器人就减速。由此实现在全图灵活的控制速度。</p>
+<div class="figure align-default" id="id17">
+<img alt="curvature" src="_images/image-20210313172910851.png" />
+<p class="caption"><span class="caption-text">curvature</span><a class="headerlink" href="#id17" title="永久链接至图片">¶</a></p>
+</div>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>所遇到的困难及解决的方法</p>
+<ul class="simple">
+<li><p>困难：</p>
+<ol class="arabic simple">
+<li><p>使用cartographer建图时，偶尔会出现地图漂移重合的问题</p></li>
+<li><p>运动控制时，机器人转弯速度不够快，且由于小车惯性较大，容易出现转弯和最后结束的时候刹不住车的问题。</p></li>
+</ol>
+</li>
+<li><p>解决方法：
+1.在cartoprapher的lua文件中可以选择使用里程计和imu，从而增加定位精度，同时在建图过程中使机器人低速移动以得到准确度更高的地图。
+2.编写直到加速，弯道减速的控制程序，以达到灵活转弯的效果，在最后停车时，通过终点前减速来平稳停车。
+## 项目数据分析</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>对测试数据的结果进行分析对比</p></li>
+<li><p>论证方案的可行性和有效性</p>
+<ul class="simple">
+<li><p>数据来源</p></li>
+<li><p>数据处理</p></li>
+<li><p>实验环境配置</p></li>
+<li><p>测试过程</p></li>
+<li><p>分析与结论 ## 项目作品总结</p></li>
+</ul>
+</li>
+<li><p>自我评价和总结</p>
+<ul class="simple">
+<li><p>项目方案的创新点</p></li>
+<li><p>项目所实现的功能</p></li>
+<li><p>测试的数据结果</p></li>
+</ul>
+</li>
+<li><p>展望 -作品的进一步提升和应用拓展 ## 参考文献及附录</p></li>
+<li><p>参考文献</p></li>
+<li><p>附录</p>
+<ol class="arabic simple">
+<li><p>参考内容(可选)</p>
+<ul class="simple">
+<li><p>公式的推演</p></li>
+<li><p>编写的算法语言程序设计</p></li>
+<li><p>图纸、数据表格</p></li>
+</ul>
+</li>
+<li><p>程序源代码</p></li>
+<li><p>研究论文(可选)</p></li>
+</ol>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="first.html" class="btn btn-neutral float-left" title="智能驾驶小车ros示例代码介绍" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2021, Asafield.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
