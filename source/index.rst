@@ -11,6 +11,7 @@ Welcome to Asafield's Blog's documentation!
    :caption: Contents:
    
    first
+   线上赛技术报告部分
 
 
 Indices and tables
