@@ -8,11 +8,17 @@ Welcome to Asafield's Blog's documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: 线上赛:
+   
+   技术报告
+..
+
+.. toctree::
+   :maxdepth: 2
+   :caption: 线下赛:
    
    first
-   技术报告
-
+..
 
 Indices and tables
 ==================
