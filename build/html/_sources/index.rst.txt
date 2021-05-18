@@ -18,6 +18,7 @@ Welcome to Asafield's Blog's documentation!
    :caption: 线下赛:
    
    first
+   ucar_controller
 ..
 
 Indices and tables

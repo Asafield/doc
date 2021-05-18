@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="zh" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>智能驾驶小车ros示例代码介绍 &mdash; Asafield&#39;s Blog 1.0 文档</title>
@@ -38,6 +39,7 @@
     
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="1. 全部功能" href="ucar_controller.html" />
     <link rel="prev" title="部分技术报告" href="%E6%8A%80%E6%9C%AF%E6%8A%A5%E5%91%8A.html" /> 
 </head>
 
@@ -126,6 +128,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#id20">修改记录</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ucar_controller.html">1. 全部功能</a></li>
 </ul>
 
             
@@ -215,7 +218,7 @@
 <li><p><a class="reference internal" href="#id20" id="id31">修改记录</a></p></li>
 </ul>
 </div>
-<div class="section" id="ros">
+<section id="ros">
 <h1><a class="toc-backref" href="#id21">智能驾驶小车ros示例代码介绍</a><a class="headerlink" href="#ros" title="永久链接至标题">¶</a></h1>
 <p>[TOC] ## 简介
 该示例代码包含整个ROS的workspace。用<code class="docutils literal notranslate"><span class="pre">catkin_make</span></code>编译即可使用。
@@ -226,7 +229,7 @@
 catkin_make
 </pre></div>
 </div>
-<div class="section" id="id1">
+<section id="id1">
 <h2><a class="toc-backref" href="#id22">文件结构</a><a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
 <p>本workspace目录结构如下：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>.
@@ -255,10 +258,10 @@ catkin_make
 具体使用见下文以及相应包中的<code class="docutils literal notranslate"><span class="pre">README.md</span></code>文件。
 &gt;没有包含的usb摄像头可以参考<a class="reference external" href="https://github.com/ros-drivers/usb_cam">usb_cam</a>包来使用。下面提到的<code class="docutils literal notranslate"><span class="pre">startup_scripts</span></code>已经将摄像头设备链接为<code class="docutils literal notranslate"><span class="pre">/dev/ucar_video</span></code>。</p></li>
 </ol>
-</div>
-<div class="section" id="id2">
+</section>
+<section id="id2">
 <h2><a class="toc-backref" href="#id23">各包说明</a><a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
-<div class="section" id="startup-scripts">
+<section id="startup-scripts">
 <h3><a class="toc-backref" href="#id24">1. startup_scripts</a><a class="headerlink" href="#startup-scripts" title="永久链接至标题">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">initdev_mini.sh</span></code> 与 <code class="docutils literal notranslate"><span class="pre">initdev_xiao.sh</span></code>
 分别对应晓mini版本的智能驾驶小车和晓版本的智能驾驶小车。</p>
@@ -271,10 +274,10 @@ sudo reboot <span class="c1"># 可选，最好完成一次重启</span>
 </div>
 <p>这个脚本完成了<code class="docutils literal notranslate"><span class="pre">/etc/udev/rules.d/ucar.rules</span></code>文件的创建与udev服务重启。
 以及，在<code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>中添加了对<code class="docutils literal notranslate"><span class="pre">ucar_ws</span></code>的ROS环境的source。</p>
-</div>
-<div class="section" id="ucar-controller">
+</section>
+<section id="ucar-controller">
 <h3><a class="toc-backref" href="#id25">2. ucar_controller</a><a class="headerlink" href="#ucar-controller" title="永久链接至标题">¶</a></h3>
-<div class="section" id="id3">
+<section id="id3">
 <h4>2.1 简介<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">ucar_controller</span></code>作为与下位机mcu通讯的ROS包实现了电机控制、灯光控制、mcu板载imu数据读取等功能。我们可以通过发布<code class="docutils literal notranslate"><span class="pre">/cmd_vel(geometry_msgs/Twist)</span></code>速度控制话题，指定xy方向的平移速度以及yaw角的旋转速度来控制小车运动。同时发布里程计话题<code class="docutils literal notranslate"><span class="pre">/odom(nav_msgs/Odometry)</span></code>实时发布小车里程计记录的速度、位置。其他功能阅读<code class="docutils literal notranslate"><span class="pre">ucar_controller</span></code>包中的<code class="docutils literal notranslate"><span class="pre">readme.md</span></code>文档。
 #### 2.2 所需安装依赖</p>
@@ -289,8 +292,8 @@ sudo pip3 install empy -i https://pypi.tuna.tsinghua.edu.cn/simple
 catkin_make
 </pre></div>
 </div>
-</div>
-<div class="section" id="id4">
+</section>
+<section id="id4">
 <h4>2.3 简单验证<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h4>
 <p>1、启动节点：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roslaunch ucar_controller base_driver.launch
@@ -312,22 +315,22 @@ T重新开启一个终端。
 </pre></div>
 </div>
 <p>输入指令后小车会持续逆时针自转。</p>
-</div>
-</div>
-<div class="section" id="fdilink-ahrs">
+</section>
+</section>
+<section id="fdilink-ahrs">
 <h3><a class="toc-backref" href="#id26">3. fdilink_ahrs</a><a class="headerlink" href="#fdilink-ahrs" title="永久链接至标题">¶</a></h3>
-<div class="section" id="id5">
+<section id="id5">
 <span id="id6"></span><h4>3.1 简介<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">fdilink_ahrs</span></code>作为与晓版本小车nano板载imu通讯的ROS包实现了imu数据读取发布的功能。我们可以通过订阅<code class="docutils literal notranslate"><span class="pre">/imu(sensor_msgs/Imu)</span></code>话题来获取imu数据。详细功能阅读<code class="docutils literal notranslate"><span class="pre">fdilink_ahrs</span></code>包中的<code class="docutils literal notranslate"><span class="pre">README.md</span></code>文档。
 #### 3.2 启动 完成编译后使用如下指令启动该节点：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roslaunch fdilink_ahrs ahrs_driver.launch
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="ydlidar">
+</section>
+</section>
+<section id="ydlidar">
 <h3><a class="toc-backref" href="#id27">4. ydlidar</a><a class="headerlink" href="#ydlidar" title="永久链接至标题">¶</a></h3>
-<div class="section" id="id7">
+<section id="id7">
 <span id="id8"></span><h4>4.1 简介<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h4>
 <p>激光雷达的驱动包，直接编译即可使用。默认发布<code class="docutils literal notranslate"><span class="pre">/scan</span></code>话题的数据。对应的数据类型为：<code class="docutils literal notranslate"><span class="pre">sensor_msgs/LaserScan</span></code>。
 #### 4.2 启动与配置 完成编译后使用如下指令启动该节点：</p>
@@ -336,38 +339,38 @@ T重新开启一个终端。
 </div>
 <p>对应的<code class="docutils literal notranslate"><span class="pre">launch</span></code>文件保存在：<code class="docutils literal notranslate"><span class="pre">~/ucar_ws/src/ydlidar/launch/ydlidar.launch</span></code>。
 修改<code class="docutils literal notranslate"><span class="pre">ydlidar.launch</span></code>文件中的参数可以对<code class="docutils literal notranslate"><span class="pre">topic_name</span></code>、<code class="docutils literal notranslate"><span class="pre">frame_id</span></code>等参数进行修改。</p>
-</div>
-</div>
-<div class="section" id="ucar-nav">
+</section>
+</section>
+<section id="ucar-nav">
 <h3><a class="toc-backref" href="#id28">5. ucar_nav</a><a class="headerlink" href="#ucar-nav" title="永久链接至标题">¶</a></h3>
-<div class="section" id="id9">
+<section id="id9">
 <span id="id10"></span><h4>5.1 简介<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">ucar_nav</span></code>包基于<code class="docutils literal notranslate"><span class="pre">navigation</span></code>是包集，完成了基于<code class="docutils literal notranslate"><span class="pre">move_base</span></code>的导航配置，供参考使用。
 #### 5.2 安装 新打开一个终端，输入以下命令安装</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install ros-melodic-navigation*
 </pre></div>
 </div>
-</div>
-<div class="section" id="id11">
+</section>
+<section id="id11">
 <h4>5.3 使用<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h4>
 <p>打开新的终端,运行下面命令</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roslaunch ucar_nav ucar_navigation.launch
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">ucar_nav/launch/</span></code>文件夹中的navigation.launch为导航的启动文件。<code class="docutils literal notranslate"><span class="pre">ucar_nav/launch/config/</span></code>文件夹主要用于存放导航所需要的yaml文件,其中<code class="docutils literal notranslate"><span class="pre">ucar_nav/launch/config/amcl/</span></code>中是用于定位的参数文件，<code class="docutils literal notranslate"><span class="pre">ucar_nav/launch/config/move_base/</span></code>是存放着路径规划和感知地图的参数文件。</p>
-</div>
-<div class="section" id="id12">
+</section>
+<section id="id12">
 <h4>编译过程中可能出现的错误<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h4>
 <p>1、No module named ‘em’ 解决方法：打开一个新的终端执行下面的命令</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo pip3 uninstall em
 sudo pip3 install empy -i https://pypi.tuna.tsinghua.edu.cn/simple
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="ucar-map">
+</section>
+</section>
+<section id="ucar-map">
 <h3><a class="toc-backref" href="#id29">6. ucar_map</a><a class="headerlink" href="#ucar-map" title="永久链接至标题">¶</a></h3>
-<div class="section" id="id13">
+<section id="id13">
 <span id="id14"></span><h4>6.1 简介<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h4>
 <p>SLAM建图示例包，本包配置了Google的Cartographer的2D建图启动文件。 ####
 6.2 cartographer安装</p>
@@ -375,10 +378,10 @@ sudo pip3 install empy -i https://pypi.tuna.tsinghua.edu.cn/simple
 sudo apt-get install ros-melodic-cartographer-ros
 </pre></div>
 </div>
-</div>
-<div class="section" id="id15">
+</section>
+<section id="id15">
 <h4>6.2 启动建图<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h4>
-<div class="section" id="id16">
+<section id="id16">
 <h5>6.2.1 分步启动建图<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h5>
 <p>打开3个新的终端,运行下面命令：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roslaunch ucar_controller base_driver.launch
@@ -386,8 +389,8 @@ roslaunch ydlidar ydlidar.launch
 roslaunch ucar_map cartographer_start.launch
 </pre></div>
 </div>
-</div>
-<div class="section" id="id17">
+</section>
+<section id="id17">
 <h5>6.2.2 一键启动建图<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h5>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roslaunch ucar_map ucar_mapping.launch
 </pre></div>
@@ -396,24 +399,24 @@ roslaunch ucar_map cartographer_start.launch
 上文已经介绍了
 base_driver.launch是启动小车底盘控制，ydlidar.launch是启动雷达
 cartographer_start.launch是单独启动cartographer_ros。</p>
-</div>
-</div>
-</div>
-<div class="section" id="xf-mic-asr-offline">
+</section>
+</section>
+</section>
+<section id="xf-mic-asr-offline">
 <h3><a class="toc-backref" href="#id30">7. xf_mic_asr_offline</a><a class="headerlink" href="#xf-mic-asr-offline" title="永久链接至标题">¶</a></h3>
-<div class="section" id="id18">
+<section id="id18">
 <span id="id19"></span><h4>7.1 简介<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h4>
 <p>麦克风阵列ROS驱动示例包，本包基于ROS实现了上传音频、获取唤醒角度、设置灯光、设置主麦设置唤醒词等功能。
 详细内容阅读：<code class="docutils literal notranslate"><span class="pre">ucar_ws/src/xf_mic_asr_offline/doc/麦克风阵列使用说明v1.9.x.pdf</span></code></p>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="id20">
+</section>
+</section>
+</section>
+</section>
+<section id="id20">
 <h1><a class="toc-backref" href="#id31">修改记录</a><a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h1>
 <p>20210323：新增fdilink_ahrs软件包的简介 20210309：第一版
 20210304：初次编写</p>
-</div>
+</section>
 
 
            </div>
@@ -421,6 +424,7 @@ cartographer_start.launch是单独启动cartographer_ros。</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="ucar_controller.html" class="btn btn-neutral float-right" title="1. 全部功能" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="%E6%8A%80%E6%9C%AF%E6%8A%A5%E5%91%8A.html" class="btn btn-neutral float-left" title="部分技术报告" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
@@ -428,7 +432,7 @@ cartographer_start.launch是单独启动cartographer_ros。</p>
 
   <div role="contentinfo">
     <p>
-        &#169; 版权所有 2021, Asafield.
+        &#169; Copyright 2021, Asafield.
 
     </p>
   </div>
