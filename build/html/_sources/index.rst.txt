@@ -19,6 +19,8 @@ Welcome to Asafield's Blog's documentation!
    
    first
    ucar
+   communication
+   
 ..
 
 Indices and tables
