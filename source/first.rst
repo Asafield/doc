@@ -7,7 +7,10 @@
 智能驾驶小车ros示例代码介绍
 ===========================
 
-[TOC] ## 简介
+
+简介
+--------
+
 该示例代码包含整个ROS的workspace。用\ ``catkin_make``\ 编译即可使用。
 建议放在 ``~/`` 目录下。
 >前提条件：本工作空间需要已经完成ROS的安装、OpenCV的编译。
@@ -244,7 +247,7 @@ cartographer_start.launch是单独启动cartographer_ros。
 详细内容阅读：\ ``ucar_ws/src/xf_mic_asr_offline/doc/麦克风阵列使用说明v1.9.x.pdf``
 
 修改记录
-========
+-------------
 
 20210323：新增fdilink_ahrs软件包的简介 20210309：第一版
 20210304：初次编写
