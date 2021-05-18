@@ -92,7 +92,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="first.html">智能驾驶小车ros示例代码介绍</a></li>
 <li class="toctree-l1"><a class="reference internal" href="first.html#id20">修改记录</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ucar_controller.html">1. 全部功能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ucar.html">底层控制</a></li>
 </ul>
 
             
@@ -181,29 +181,54 @@
 <li class="toctree-l2"><a class="reference internal" href="first.html#id1">文件结构</a></li>
 <li class="toctree-l2"><a class="reference internal" href="first.html#id2">各包说明</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="first.html#startup-scripts">1. startup_scripts</a></li>
-<li class="toctree-l3"><a class="reference internal" href="first.html#ucar-controller">2. ucar_controller</a></li>
-<li class="toctree-l3"><a class="reference internal" href="first.html#fdilink-ahrs">3. fdilink_ahrs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="first.html#ydlidar">4. ydlidar</a></li>
-<li class="toctree-l3"><a class="reference internal" href="first.html#ucar-nav">5. ucar_nav</a></li>
-<li class="toctree-l3"><a class="reference internal" href="first.html#ucar-map">6. ucar_map</a></li>
-<li class="toctree-l3"><a class="reference internal" href="first.html#xf-mic-asr-offline">7. xf_mic_asr_offline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="first.html#ucar-controller">2. ucar_controller</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="first.html#id3">2.1 简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="first.html#id4">2.3 简单验证</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="first.html#fdilink-ahrs">3. fdilink_ahrs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="first.html#id5">3.1 简介</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="first.html#ydlidar">4. ydlidar</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="first.html#id7">4.1 简介</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="first.html#ucar-nav">5. ucar_nav</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="first.html#id9">5.1 简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="first.html#id11">5.3 使用</a></li>
+<li class="toctree-l4"><a class="reference internal" href="first.html#id12">编译过程中可能出现的错误</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="first.html#ucar-map">6. ucar_map</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="first.html#id13">6.1 简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="first.html#id15">6.2 启动建图</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="first.html#xf-mic-asr-offline">7. xf_mic_asr_offline</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="first.html#id18">7.1 简介</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="first.html#id20">修改记录</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ucar_controller.html">1. 全部功能</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ucar_controller.html#id2">1.1 里程计与底盘的坐标变换是否发布由参数实时配置</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ucar_controller.html#id3">1.2 停止运动服务</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ucar_controller.html#id4">1.3 实时控制</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ucar_controller.html#id5">1.4 设置灯光效果</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ucar_controller.html#percentage">1.5 底盘电池信息发布（仅电池剩余电量百分比有效，即：percentage）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ucar_controller.html#id6">1.6 获取底盘电量（仅电池剩余电量百分比有效，即：percentage）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ucar_controller.html#id7">1.7.获取当前最大速度</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ucar_controller.html#id8">1.8 设置底盘最大速度</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ucar_controller.html#id9">1.9 获取底盘运行总里程</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ucar_controller.html#cameralidarimu-tf-server">1.10 设置camera、lidar、imu的位姿 （tf_server）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ucar_controller.html#id10">1.11 获取camera、lidar、imu的位姿（tf_server）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ucar.html">底层控制</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ucar.html#id2">1. 全部功能</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ucar.html#id3">1.1 里程计与底盘的坐标变换是否发布由参数实时配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ucar.html#id4">1.2 停止运动服务</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ucar.html#id5">1.3 实时控制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ucar.html#id6">1.4 设置灯光效果</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ucar.html#percentage">1.5 底盘电池信息发布（仅电池剩余电量百分比有效，即：percentage）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ucar.html#id7">1.6 获取底盘电量（仅电池剩余电量百分比有效，即：percentage）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ucar.html#id8">1.7.获取当前最大速度</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ucar.html#id9">1.8 设置底盘最大速度</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ucar.html#id10">1.9 获取底盘运行总里程</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ucar.html#cameralidarimu-tf-server">1.10 设置camera、lidar、imu的位姿 （tf_server）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ucar.html#id11">1.11 获取camera、lidar、imu的位姿（tf_server）</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

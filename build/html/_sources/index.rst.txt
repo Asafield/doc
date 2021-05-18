@@ -7,18 +7,18 @@ Welcome to Asafield's Blog's documentation!
 ===========================================
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 4
    :caption: 线上赛:
    
    技术报告
 ..
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 4
    :caption: 线下赛:
    
    first
-   ucar_controller
+   ucar
 ..
 
 Indices and tables

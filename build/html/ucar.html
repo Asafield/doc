@@ -1,0 +1,457 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>底层控制 &mdash; Asafield&#39;s Blog 1.0 文档</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="prev" title="智能驾驶小车ros示例代码介绍" href="first.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Asafield's Blog
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">线上赛:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="%E6%8A%80%E6%9C%AF%E6%8A%A5%E5%91%8A.html">部分技术报告</a></li>
+</ul>
+<p class="caption"><span class="caption-text">线下赛:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="first.html">智能驾驶小车ros示例代码介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first.html#id20">修改记录</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">底层控制</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">1. 全部功能</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">1.1 里程计与底盘的坐标变换是否发布由参数实时配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">1.2 停止运动服务</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">1.3 实时控制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">1.4 设置灯光效果</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#percentage">1.5 底盘电池信息发布（仅电池剩余电量百分比有效，即：percentage）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">1.6 获取底盘电量（仅电池剩余电量百分比有效，即：percentage）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">1.7.获取当前最大速度</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">1.8 设置底盘最大速度</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">1.9 获取底盘运行总里程</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cameralidarimu-tf-server">1.10 设置camera、lidar、imu的位姿 （tf_server）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">1.11 获取camera、lidar、imu的位姿（tf_server）</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Asafield's Blog</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>底层控制</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/ucar.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="contents topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#id1" id="id12">底层控制</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id2" id="id13">1. 全部功能</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id3" id="id14">1.1 里程计与底盘的坐标变换是否发布由参数实时配置</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id15">1.2 停止运动服务</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id16">1.3 实时控制</a></p></li>
+<li><p><a class="reference internal" href="#id6" id="id17">1.4 设置灯光效果</a></p></li>
+<li><p><a class="reference internal" href="#percentage" id="id18">1.5 底盘电池信息发布（仅电池剩余电量百分比有效，即：percentage）</a></p></li>
+<li><p><a class="reference internal" href="#id7" id="id19">1.6 获取底盘电量（仅电池剩余电量百分比有效，即：percentage）</a></p></li>
+<li><p><a class="reference internal" href="#id8" id="id20">1.7.获取当前最大速度</a></p></li>
+<li><p><a class="reference internal" href="#id9" id="id21">1.8 设置底盘最大速度</a></p></li>
+<li><p><a class="reference internal" href="#id10" id="id22">1.9 获取底盘运行总里程</a></p></li>
+<li><p><a class="reference internal" href="#cameralidarimu-tf-server" id="id23">1.10 设置camera、lidar、imu的位姿 （tf_server）</a></p></li>
+<li><p><a class="reference internal" href="#id11" id="id24">1.11 获取camera、lidar、imu的位姿（tf_server）</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="id1">
+<h1><a class="toc-backref" href="#id12">底层控制</a><a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<section id="id2">
+<h2><a class="toc-backref" href="#id13">1. 全部功能</a><a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<section id="id3">
+<h3><a class="toc-backref" href="#id14">1.1 里程计与底盘的坐标变换是否发布由参数实时配置</a><a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>参数名称：<code class="docutils literal notranslate"><span class="pre">publish_odom_tf</span></code> 1. 设置为true: 发布 odom -&gt;
+base_link的坐标变换 2. 设置为false: 不发布 odom -&gt; base_link的坐标变换</p>
+<blockquote>
+<div><p>注，以下运动相关服务优先度大于实时运动控制（cmd_vel）当服务完成后才会继续执行实时控制。（手柄的优先级更高，不过不涉及web接口，此处不详细描述。手柄
+&gt; 运动服务 &gt; cmd_vel）</p>
+</div></blockquote>
+</section>
+<section id="id4">
+<h3><a class="toc-backref" href="#id15">1.2 停止运动服务</a><a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>服务名：<code class="docutils literal notranslate"><span class="pre">stop_move</span></code> （基于速度、距离、角度的运动）
+用途：调用后立即终止正在运行的<code class="docutils literal notranslate"><span class="pre">time_move</span></code>或<code class="docutils literal notranslate"><span class="pre">vel_dist_move</span></code>。
+并回到cmd控制模式 服务数据类型：std_srvs/Trigger.srv</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---</span>
+<span class="nb">bool</span> <span class="n">success</span>                  <span class="c1">#运动结束时返回true，异常返回false</span>
+<span class="n">string</span> <span class="n">message</span>                <span class="c1">#返回的字符串信息</span>
+</pre></div>
+</div>
+<p>返回枚举： 1. 成功停止</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">res</span><span class="o">.</span><span class="n">success</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
+<span class="n">res</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Move stopped &quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<ol class="arabic" start="2">
+<li><p>不在move模式，不需要停止</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">res</span><span class="o">.</span><span class="n">success</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>
+<span class="n">res</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Not in MOTOR_MODE_MOVE.&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="id5">
+<h3><a class="toc-backref" href="#id16">1.3 实时控制</a><a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>方式：发布话题。 话题名：<code class="docutils literal notranslate"><span class="pre">cmd_vel</span></code> msg类型：geometry_msgs/Twist.msg</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">geometry_msgs</span><span class="o">/</span><span class="n">Vector3</span> <span class="n">linear</span>
+  <span class="n">float64</span> <span class="n">x</span>                   <span class="c1"># x方向线速度</span>
+  <span class="n">float64</span> <span class="n">y</span>                   <span class="c1"># y方向线速度</span>
+  <span class="n">float64</span> <span class="n">z</span>                   <span class="c1"># 无效</span>
+<span class="n">geometry_msgs</span><span class="o">/</span><span class="n">Vector3</span> <span class="n">angular</span>
+  <span class="n">float64</span> <span class="n">x</span>                   <span class="c1"># 无效</span>
+  <span class="n">float64</span> <span class="n">y</span>                   <span class="c1"># 无效</span>
+  <span class="n">float64</span> <span class="n">z</span>                   <span class="c1"># z轴角速度</span>
+</pre></div>
+</div>
+</section>
+<section id="id6">
+<h3><a class="toc-backref" href="#id17">1.4 设置灯光效果</a><a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>服务名：<code class="docutils literal notranslate"><span class="pre">get_battery_state</span></code>
+服务数据类型：aicar_controller/GetBatteryInfo.srv</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uint8</span> <span class="n">MODE_NORMAL</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># 常亮</span>
+<span class="n">uint8</span> <span class="n">MODE_BLINK</span>  <span class="o">=</span> <span class="mi">1</span> <span class="c1"># 闪烁</span>
+<span class="n">uint8</span> <span class="n">MODE_BREATH</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># 呼吸</span>
+
+<span class="n">uint8</span>   <span class="n">mode_type</span>   <span class="c1"># 灯光模式</span>
+<span class="n">float64</span> <span class="n">frequency</span>   <span class="c1"># 模式频率（常亮模式自动忽略）</span>
+<span class="n">uint8</span> <span class="n">red_value</span>   <span class="c1"># 红色光亮度范围（0-255）</span>
+<span class="n">uint8</span> <span class="n">green_value</span> <span class="c1"># 绿色光亮度范围（0-255）</span>
+<span class="n">uint8</span> <span class="n">blue_value</span>  <span class="c1"># 蓝色光亮度范围（0-255）</span>
+<span class="o">---</span>
+<span class="nb">bool</span> <span class="n">success</span>        <span class="c1"># 设置是否成功</span>
+<span class="n">string</span> <span class="n">message</span>      <span class="c1"># 异常log信息</span>
+</pre></div>
+</div>
+<p>response枚举： 1、设置失败（可能与MUC通信异常） res.success = false;
+res.message = &quot;Can't connect base's MCU.&quot;; 2、设置成功 res.success =
+true; res.message = &quot;Set LED success.&quot;;</p>
+</section>
+<section id="percentage">
+<h3><a class="toc-backref" href="#id18">1.5 底盘电池信息发布（仅电池剩余电量百分比有效，即：percentage）</a><a class="headerlink" href="#percentage" title="永久链接至标题">¶</a></h3>
+<p>话题名：<code class="docutils literal notranslate"><span class="pre">battery_state</span></code> <code class="docutils literal notranslate"><span class="pre">sensor_msgs/BatteryState.msg</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POWER_SUPPLY_STATUS_UNKNOWN</span>      <span class="o">=</span> <span class="mi">0</span>            <span class="c1"># 未知</span>
+<span class="n">POWER_SUPPLY_STATUS_CHARGING</span>     <span class="o">=</span> <span class="mi">1</span>            <span class="c1"># 充电</span>
+<span class="n">POWER_SUPPLY_STATUS_DISCHARGING</span>  <span class="o">=</span> <span class="mi">2</span>            <span class="c1"># 放电中</span>
+<span class="n">POWER_SUPPLY_STATUS_NOT_CHARGING</span> <span class="o">=</span> <span class="mi">3</span>            <span class="c1"># 未充电</span>
+<span class="n">POWER_SUPPLY_STATUS_FULL</span>         <span class="o">=</span> <span class="mi">4</span>            <span class="c1"># 满电</span>
+<span class="n">POWER_SUPPLY_HEALTH_UNKNOWN</span>               <span class="o">=</span> <span class="mi">0</span>   <span class="c1"># 未知</span>
+<span class="n">POWER_SUPPLY_HEALTH_GOOD</span>                  <span class="o">=</span> <span class="mi">1</span>   <span class="c1"># 良好</span>
+<span class="n">POWER_SUPPLY_HEALTH_OVERHEAT</span>              <span class="o">=</span> <span class="mi">2</span>   <span class="c1"># 过热</span>
+<span class="n">POWER_SUPPLY_HEALTH_DEAD</span>                  <span class="o">=</span> <span class="mi">3</span>   <span class="c1"># 没电</span>
+<span class="n">POWER_SUPPLY_HEALTH_OVERVOLTAGE</span>           <span class="o">=</span> <span class="mi">4</span>   <span class="c1"># 过电压</span>
+<span class="n">POWER_SUPPLY_HEALTH_UNSPEC_FAILURE</span>        <span class="o">=</span> <span class="mi">5</span>   <span class="c1"># 未知错误</span>
+<span class="n">POWER_SUPPLY_HEALTH_COLD</span>                  <span class="o">=</span> <span class="mi">6</span>   <span class="c1"># 过冷</span>
+<span class="n">POWER_SUPPLY_HEALTH_WATCHDOG_TIMER_EXPIRE</span> <span class="o">=</span> <span class="mi">7</span>   <span class="c1">#</span>
+<span class="n">POWER_SUPPLY_HEALTH_SAFETY_TIMER_EXPIRE</span>   <span class="o">=</span> <span class="mi">8</span>   <span class="c1">#</span>
+<span class="n">POWER_SUPPLY_TECHNOLOGY_UNKNOWN</span> <span class="o">=</span> <span class="mi">0</span>   <span class="c1"># 未知</span>
+<span class="n">POWER_SUPPLY_TECHNOLOGY_NIMH</span>    <span class="o">=</span> <span class="mi">1</span>   <span class="c1"># Ni-MH  battery 镍氢电池</span>
+<span class="n">POWER_SUPPLY_TECHNOLOGY_LION</span>    <span class="o">=</span> <span class="mi">2</span>   <span class="c1"># Li-ion battery 锂离子电池</span>
+<span class="n">POWER_SUPPLY_TECHNOLOGY_LIPO</span>    <span class="o">=</span> <span class="mi">3</span>   <span class="c1"># Li-Po  battery 锂聚合物电池</span>
+<span class="n">POWER_SUPPLY_TECHNOLOGY_LIFE</span>    <span class="o">=</span> <span class="mi">4</span>   <span class="c1"># li-Fe  battery 锂铁电池</span>
+<span class="n">POWER_SUPPLY_TECHNOLOGY_NICD</span>    <span class="o">=</span> <span class="mi">5</span>   <span class="c1"># NiCd   battery 镍镉电池</span>
+<span class="n">POWER_SUPPLY_TECHNOLOGY_LIMN</span>    <span class="o">=</span> <span class="mi">6</span>   <span class="c1"># LiMn   battery 锂锰电池</span>
+
+<span class="n">std_msgs</span><span class="o">/</span><span class="n">Header</span> <span class="n">header</span>
+  <span class="n">uint32</span> <span class="n">seq</span>
+  <span class="n">time</span> <span class="n">stamp</span>
+  <span class="n">string</span> <span class="n">frame_id</span>
+<span class="n">float32</span> <span class="n">voltage</span>                      <span class="c1"># Voltage in Volts (Mandatory)</span>
+<span class="n">float32</span> <span class="n">current</span>                      <span class="c1"># Negative when discharging (A)  (If unmeasured NaN)</span>
+<span class="n">float32</span> <span class="n">charge</span>                       <span class="c1"># Current charge in Ah  (If unmeasured NaN)</span>
+<span class="n">float32</span> <span class="n">capacity</span>                     <span class="c1"># Capacity in Ah (last full capacity)  (If unmeasured NaN)</span>
+<span class="n">float32</span> <span class="n">design_capacity</span>              <span class="c1"># Capacity in Ah (design capacity)  (If unmeasured NaN)</span>
+<span class="n">float32</span> <span class="n">percentage</span>                   <span class="c1"># Charge percentage on 0 to 1 range  (If unmeasured NaN)</span>
+<span class="n">uint8</span>   <span class="n">power_supply_status</span>     <span class="c1"># The charging status as reported. Values defined above</span>
+<span class="n">uint8</span>   <span class="n">power_supply_health</span>     <span class="c1"># The battery health metric. Values defined above</span>
+<span class="n">uint8</span>   <span class="n">power_supply_technology</span> <span class="c1"># The battery chemistry. Values defined above</span>
+<span class="nb">bool</span>    <span class="n">present</span>          <span class="c1"># True if the battery is present</span>
+
+<span class="n">float32</span><span class="p">[]</span> <span class="n">cell_voltage</span>   <span class="c1"># An array of individual cell voltages for each cell in the pack</span>
+                         <span class="c1"># If individual voltages unknown but number of cells known set each to NaN</span>
+<span class="n">string</span> <span class="n">location</span>          <span class="c1"># The location into which the battery is inserted. (slot number or plug)</span>
+<span class="n">string</span> <span class="n">serial_number</span>     <span class="c1"># The best approximation of the battery serial number</span>
+</pre></div>
+</div>
+<p>当前版本使用到的status数据：</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">battery_msg</span><span class="p">.</span><span class="n">power_supply_status</span>     <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>           <span class="c1">// 放电中 即正在运行</span>
+<span class="n">battery_msg</span><span class="p">.</span><span class="n">power_supply_health</span>     <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>           <span class="c1">// 良好</span>
+<span class="n">battery_msg</span><span class="p">.</span><span class="n">power_supply_technology</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>           <span class="c1">// UNKNOWN</span>
+<span class="n">battery_msg</span><span class="p">.</span><span class="n">present</span>    <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>                     <span class="c1">// 存在电池</span>
+<span class="n">battery_msg</span><span class="p">.</span><span class="n">percentage</span> <span class="o">=</span> <span class="n">current_battery_percent_</span><span class="p">;</span> <span class="c1">// 电池电量百分比</span>
+</pre></div>
+</div>
+</section>
+<section id="id7">
+<h3><a class="toc-backref" href="#id19">1.6 获取底盘电量（仅电池剩余电量百分比有效，即：percentage）</a><a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>服务名：<code class="docutils literal notranslate"><span class="pre">get_battery_state</span></code> 用途： 调用主动获取电池状态。
+服务数据类型：aicar_controller/GetBatteryInfo.srv</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---</span>
+<span class="n">sensor_msgs</span><span class="o">/</span><span class="n">BatteryState</span> <span class="n">battery_state</span>
+</pre></div>
+</div>
+<p>即，服务的request为空，response为上面话题发布的电池状态。</p>
+<p>response枚举： 1、获取异常(可能是串口未与MCU通讯)：
+<code class="docutils literal notranslate"><span class="pre">response.battery_state.percentage</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">-1</span> <span class="pre">#</span> <span class="pre">表示异常</span>&#160;&#160; <span class="pre">response.battery_state.power_supply_status</span>&#160;&#160;&#160;&#160; <span class="pre">=</span>&#160; <span class="pre">0</span> <span class="pre">#</span> <span class="pre">未知</span>&#160;&#160; <span class="pre">response.battery_state.power_supply_health</span>&#160;&#160;&#160;&#160; <span class="pre">=</span>&#160; <span class="pre">0</span> <span class="pre">#</span> <span class="pre">未知</span>&#160;&#160; <span class="pre">response.battery_state.power_supply_technology</span> <span class="pre">=</span>&#160; <span class="pre">0</span> <span class="pre">#</span> <span class="pre">未知</span></code></p>
+<p>2、正常获取：
+<code class="docutils literal notranslate"><span class="pre">response.battery_state.percentage</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">&lt;current_percent&gt;</span> <span class="pre">#</span> <span class="pre">电池剩余电量百分比(0-100)。</span>&#160;&#160; <span class="pre">response.battery_state.power_supply_status</span>&#160;&#160;&#160;&#160; <span class="pre">=</span>&#160; <span class="pre">2</span> <span class="pre">#</span> <span class="pre">放电中</span>&#160;&#160; <span class="pre">response.battery_state.power_supply_health</span>&#160;&#160;&#160;&#160; <span class="pre">=</span>&#160; <span class="pre">1</span> <span class="pre">#</span> <span class="pre">良好</span>&#160;&#160; <span class="pre">response.battery_state.power_supply_technology</span> <span class="pre">=</span>&#160; <span class="pre">0</span> <span class="pre">#</span> <span class="pre">未知</span></code></p>
+</section>
+<section id="id8">
+<h3><a class="toc-backref" href="#id20">1.7.获取当前最大速度</a><a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<p>服务名：<code class="docutils literal notranslate"><span class="pre">get_max_vel</span></code> 服务数据类型：GetMaxVel.srv</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---</span>
+<span class="n">float64</span> <span class="n">max_linear_velocity</span>   <span class="c1"># 底盘最大线速度 (m)</span>
+<span class="n">float64</span> <span class="n">max_angular_velocity</span>  <span class="c1"># 底盘最大角速度 (rad/s)</span>
+</pre></div>
+</div>
+</section>
+<section id="id9">
+<h3><a class="toc-backref" href="#id21">1.8 设置底盘最大速度</a><a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<p>服务名：<code class="docutils literal notranslate"><span class="pre">set_max_vel</span></code> 服务数据类型：SetMaxVel.srv</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">float64</span> <span class="n">max_linear_velocity</span>   <span class="c1"># 底盘最大线速度 (m)</span>
+<span class="n">float64</span> <span class="n">max_angular_velocity</span>  <span class="c1"># 底盘最大角速度 (rad/s)</span>
+<span class="o">---</span>
+<span class="nb">bool</span> <span class="n">success</span>
+<span class="n">string</span> <span class="n">message</span>
+</pre></div>
+</div>
+<p>注：调用后同时会更新参数服务器中参数<code class="docutils literal notranslate"><span class="pre">/base_driver/linear_speed_max</span></code>、<code class="docutils literal notranslate"><span class="pre">/base_driver/angular_speed_max</span></code>.
+也可以通过这两个参数获取当前最大速度。</p>
+<blockquote>
+<div><p>以下两个是 tf_server提供的</p>
+</div></blockquote>
+</section>
+<section id="id10">
+<h3><a class="toc-backref" href="#id22">1.9 获取底盘运行总里程</a><a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<p>方式：获取参数（get_param） 参数名：<code class="docutils literal notranslate"><span class="pre">Mileage_sum</span></code>
+单位：米。（即记录了该底盘自出厂的运行里程）</p>
+</section>
+<section id="cameralidarimu-tf-server">
+<h3><a class="toc-backref" href="#id23">1.10 设置camera、lidar、imu的位姿 （tf_server）</a><a class="headerlink" href="#cameralidarimu-tf-server" title="永久链接至标题">¶</a></h3>
+<p>方式：call server
+服务名：<code class="docutils literal notranslate"><span class="pre">set_camera_tf</span></code>、<code class="docutils literal notranslate"><span class="pre">set_lidar_tf</span></code>、<code class="docutils literal notranslate"><span class="pre">set_imu_tf</span></code>
+服务数据类型：SetSensorTF.srv</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">float64</span>  <span class="n">pose_x</span>
+<span class="n">float64</span>  <span class="n">pose_y</span>
+<span class="n">float64</span>  <span class="n">pose_z</span>
+<span class="n">float64</span>  <span class="n">euler_r</span>
+<span class="n">float64</span>  <span class="n">euler_p</span>
+<span class="n">float64</span>  <span class="n">euler_y</span>
+<span class="o">---</span>
+<span class="nb">bool</span> <span class="n">success</span>
+<span class="n">string</span> <span class="n">message</span>
+</pre></div>
+</div>
+</section>
+<section id="id11">
+<h3><a class="toc-backref" href="#id24">1.11 获取camera、lidar、imu的位姿（tf_server）</a><a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+<p>方式：call server
+服务名：<code class="docutils literal notranslate"><span class="pre">get_camera_tf</span></code>、<code class="docutils literal notranslate"><span class="pre">get_lidar_tf</span></code>、<code class="docutils literal notranslate"><span class="pre">get_imu_tf</span></code>
+服务数据类型：GetSensorTF.srv</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---</span>
+<span class="n">float64</span>  <span class="n">pose_x</span>
+<span class="n">float64</span>  <span class="n">pose_y</span>
+<span class="n">float64</span>  <span class="n">pose_z</span>
+<span class="n">float64</span>  <span class="n">euler_r</span>
+<span class="n">float64</span>  <span class="n">euler_p</span>
+<span class="n">float64</span>  <span class="n">euler_y</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="first.html" class="btn btn-neutral float-left" title="智能驾驶小车ros示例代码介绍" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Asafield.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
