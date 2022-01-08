@@ -3,29 +3,13 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Asafield's Blog's documentation!
+重庆大学2022年智能车ROS组培训资料总览
 ===========================================
 
 .. toctree::
-   :maxdepth: 4
-   :caption: 线上赛:
+   :caption: 寒假培训:
    
-   技术报告
-..
+   一月九日<md/一月九日>
 
-.. toctree::
-   :maxdepth: 4
-   :caption: 线下赛:
+
    
-   first
-   ucar
-   communication
-   
-..
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
