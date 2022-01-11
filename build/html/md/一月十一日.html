@@ -102,6 +102,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#id10">构建节点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">运行发布者</a></li>
 </ul>
 </li>
 </ul>
@@ -515,6 +516,55 @@ $ catkin_make
 </div>
 <p>注意：如果你又添加了新的包，可能需要通过指定<code class="docutils literal notranslate"><span class="pre">--force-cmake</span></code>参数来让<code class="docutils literal notranslate"><span class="pre">catkin</span></code>强制生成。参见使用工作空间。</p>
 <p>现在你已经编写了一个简单的发布者和订阅者，让我们来测试发布者和订阅者。</p>
+</section>
+<section id="id11">
+<h3>运行发布者<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+<p>确保roscore已经开启：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ roscore
+</pre></div>
+</div>
+<p><strong>catkin specific</strong> 如果使用catkin，在运行你的程序前，请确保你在调用<code class="docutils literal notranslate"><span class="pre">catkin_make</span></code>后已经<code class="docutils literal notranslate"><span class="pre">source</span></code>过工作空间的<code class="docutils literal notranslate"><span class="pre">setup.*sh</span></code>文件：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># 在catkin工作空间中
+$ cd ~/catkin_ws
+$ source ./devel/setup.bash
+</pre></div>
+</div>
+<p>上一教程中，我们制作了一个叫做<code class="docutils literal notranslate"><span class="pre">talker</span></code>的发布者，让我们运行它：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rosrun beginner_tutorials talker      # (C++)
+$ rosrun beginner_tutorials talker.py   # (Python)
+</pre></div>
+</div>
+<p>你会看到：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[INFO] [WallTime: 1314931831.774057] hello world 1314931831.77
+[INFO] [WallTime: 1314931832.775497] hello world 1314931832.77
+[INFO] [WallTime: 1314931833.778937] hello world 1314931833.78
+[INFO] [WallTime: 1314931834.782059] hello world 1314931834.78
+[INFO] [WallTime: 1314931835.784853] hello world 1314931835.78
+[INFO] [WallTime: 1314931836.788106] hello world 1314931836.79
+```发布者节点已启动并运行。现在我们需要一个订阅者以接收来自发布者的消息。 
+
+### 运行订阅者
+
+上一教程中，我们也制作了一个叫做`listener`的订阅者，让我们运行它： 
+</pre></div>
+</div>
+<p>$ rosrun beginner_tutorials listener     # (C++)
+$ rosrun beginner_tutorials listener.py  # (Python)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+你会看到： 
+</pre></div>
+</div>
+<p>[INFO] [WallTime: 1314931969.258941] /listener_17657_1314931968795I heard hello world 1314931969.26
+[INFO] [WallTime: 1314931970.262246] /listener_17657_1314931968795I heard hello world 1314931970.26
+[INFO] [WallTime: 1314931971.266348] /listener_17657_1314931968795I heard hello world 1314931971.26
+[INFO] [WallTime: 1314931972.270429] /listener_17657_1314931968795I heard hello world 1314931972.27
+[INFO] [WallTime: 1314931973.274382] /listener_17657_1314931968795I heard hello world 1314931973.27
+[INFO] [WallTime: 1314931974.277694] /listener_17657_1314931968795I heard hello world 1314931974.28
+[INFO] [WallTime: 1314931975.283708] /listener_17657_1314931968795I heard hello world 1314931975.28</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+完成后，按`Ctrl+C`停止listener和talker。 
+</pre></div>
+</div>
 </section>
 </section>
 </section>
