@@ -38,7 +38,8 @@
 
     
     <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="搜索" href="../search.html" /> 
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="prev" title="一月十日培训内容" href="%E4%B8%80%E6%9C%88%E5%8D%81%E6%97%A5.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -84,9 +85,27 @@
             
             
               <p class="caption"><span class="caption-text">2022年ROS组寒假培训:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="%E4%B8%80%E6%9C%88%E4%B9%9D%E6%97%A5.html">一月九日</a></li>
 <li class="toctree-l1"><a class="reference internal" href="%E4%B8%80%E6%9C%88%E5%8D%81%E6%97%A5.html">一月十日</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">一月十一日</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">培训内容说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">详细培训内容</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">编写发布者节点</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">代码</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">解释</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">编写订阅者节点</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id8">代码</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">解释</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">构建节点</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
             
@@ -352,10 +371,11 @@ $ cd src
 </ul>
 <p>接下来我们要编写一个节点来接收消息。</p>
 </section>
+</section>
 <section id="id7">
-<h4>编写订阅者节点<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h4>
+<h3>编写订阅者节点<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
 <section id="id8">
-<h5>代码<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h5>
+<h4>代码<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h4>
 <p>在src目录下创建<code class="docutils literal notranslate"><span class="pre">talker.cpp</span></code>文件并粘贴以下内容进去：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
   <span class="mi">28</span> <span class="c1">#include &quot;ros/ros.h&quot;</span>
@@ -420,7 +440,7 @@ $ cd src
 </div>
 </section>
 <section id="id9">
-<h5>解释<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h5>
+<h4>解释<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h4>
 <p>下面我们将逐条解释代码，之前说过的代码就不再赘述了。</p>
 <p>切换行号显示</p>
 <p>34 void chatterCallback(const std_msgs::String::ConstPtr&amp; msg)
@@ -448,7 +468,7 @@ $ cd src
 </section>
 </section>
 <section id="id10">
-<h4>构建节点<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h4>
+<h3>构建节点<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
 <p>你在上一篇教程中使用了catkin_create_pkg，它创建了一个和一个package.xml和CMakeLists.txt文件。</p>
 <p>生成的CMakeLists.txt看起来应该是这样的（修改自创建ROS消息和服务教程，删除了未使用的注释和示例）：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="mi">1</span> <span class="n">cmake_minimum_required</span><span class="p">(</span><span class="n">VERSION</span> <span class="mf">2.8.3</span><span class="p">)</span>
@@ -498,13 +518,15 @@ $ catkin_make
 </section>
 </section>
 </section>
-</section>
 
 
            </div>
            
           </div>
           <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="%E4%B8%80%E6%9C%88%E5%8D%81%E6%97%A5.html" class="btn btn-neutral float-left" title="一月十日培训内容" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
 
   <hr/>
 
