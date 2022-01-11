@@ -103,8 +103,10 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#id10">构建节点</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id11">运行发布者</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">运行订阅者</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#id13">本次培训任务</a></li>
 </ul>
 </li>
 </ul>
@@ -535,37 +537,44 @@ $ rosrun beginner_tutorials talker.py   # (Python)
 </pre></div>
 </div>
 <p>你会看到：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[INFO] [WallTime: 1314931831.774057] hello world 1314931831.77
-[INFO] [WallTime: 1314931832.775497] hello world 1314931832.77
-[INFO] [WallTime: 1314931833.778937] hello world 1314931833.78
-[INFO] [WallTime: 1314931834.782059] hello world 1314931834.78
-[INFO] [WallTime: 1314931835.784853] hello world 1314931835.78
-[INFO] [WallTime: 1314931836.788106] hello world 1314931836.79
-```发布者节点已启动并运行。现在我们需要一个订阅者以接收来自发布者的消息。 
-
-### 运行订阅者
-
-上一教程中，我们也制作了一个叫做`listener`的订阅者，让我们运行它： 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="n">WallTime</span><span class="p">:</span> <span class="mf">1314931831.774057</span><span class="p">]</span> <span class="n">hello</span> <span class="n">world</span> <span class="mf">1314931831.77</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="n">WallTime</span><span class="p">:</span> <span class="mf">1314931832.775497</span><span class="p">]</span> <span class="n">hello</span> <span class="n">world</span> <span class="mf">1314931832.77</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="n">WallTime</span><span class="p">:</span> <span class="mf">1314931833.778937</span><span class="p">]</span> <span class="n">hello</span> <span class="n">world</span> <span class="mf">1314931833.78</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="n">WallTime</span><span class="p">:</span> <span class="mf">1314931834.782059</span><span class="p">]</span> <span class="n">hello</span> <span class="n">world</span> <span class="mf">1314931834.78</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="n">WallTime</span><span class="p">:</span> <span class="mf">1314931835.784853</span><span class="p">]</span> <span class="n">hello</span> <span class="n">world</span> <span class="mf">1314931835.78</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="n">WallTime</span><span class="p">:</span> <span class="mf">1314931836.788106</span><span class="p">]</span> <span class="n">hello</span> <span class="n">world</span> <span class="mf">1314931836.79</span>
 </pre></div>
 </div>
-<p>$ rosrun beginner_tutorials listener     # (C++)
-$ rosrun beginner_tutorials listener.py  # (Python)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-你会看到： 
-</pre></div>
-</div>
-<p>[INFO] [WallTime: 1314931969.258941] /listener_17657_1314931968795I heard hello world 1314931969.26
-[INFO] [WallTime: 1314931970.262246] /listener_17657_1314931968795I heard hello world 1314931970.26
-[INFO] [WallTime: 1314931971.266348] /listener_17657_1314931968795I heard hello world 1314931971.26
-[INFO] [WallTime: 1314931972.270429] /listener_17657_1314931968795I heard hello world 1314931972.27
-[INFO] [WallTime: 1314931973.274382] /listener_17657_1314931968795I heard hello world 1314931973.27
-[INFO] [WallTime: 1314931974.277694] /listener_17657_1314931968795I heard hello world 1314931974.28
-[INFO] [WallTime: 1314931975.283708] /listener_17657_1314931968795I heard hello world 1314931975.28</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-完成后，按`Ctrl+C`停止listener和talker。 
-</pre></div>
-</div>
+<p>发布者节点已启动并运行。现在我们需要一个订阅者以接收来自发布者的消息。</p>
 </section>
+<section id="id12">
+<h3>运行订阅者<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
+<p>上一教程中，我们也制作了一个叫做<code class="docutils literal notranslate"><span class="pre">listener</span></code>的订阅者，让我们运行它：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rosrun beginner_tutorials listener     # (C++)
+$ rosrun beginner_tutorials listener.py  # (Python) 
+</pre></div>
+</div>
+<p>你会看到：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="n">WallTime</span><span class="p">:</span> <span class="mf">1314931969.258941</span><span class="p">]</span> <span class="o">/</span><span class="n">listener_17657_1314931968795I</span> <span class="n">heard</span> <span class="n">hello</span> <span class="n">world</span> <span class="mf">1314931969.26</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="n">WallTime</span><span class="p">:</span> <span class="mf">1314931970.262246</span><span class="p">]</span> <span class="o">/</span><span class="n">listener_17657_1314931968795I</span> <span class="n">heard</span> <span class="n">hello</span> <span class="n">world</span> <span class="mf">1314931970.26</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="n">WallTime</span><span class="p">:</span> <span class="mf">1314931971.266348</span><span class="p">]</span> <span class="o">/</span><span class="n">listener_17657_1314931968795I</span> <span class="n">heard</span> <span class="n">hello</span> <span class="n">world</span> <span class="mf">1314931971.26</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="n">WallTime</span><span class="p">:</span> <span class="mf">1314931972.270429</span><span class="p">]</span> <span class="o">/</span><span class="n">listener_17657_1314931968795I</span> <span class="n">heard</span> <span class="n">hello</span> <span class="n">world</span> <span class="mf">1314931972.27</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="n">WallTime</span><span class="p">:</span> <span class="mf">1314931973.274382</span><span class="p">]</span> <span class="o">/</span><span class="n">listener_17657_1314931968795I</span> <span class="n">heard</span> <span class="n">hello</span> <span class="n">world</span> <span class="mf">1314931973.27</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="n">WallTime</span><span class="p">:</span> <span class="mf">1314931974.277694</span><span class="p">]</span> <span class="o">/</span><span class="n">listener_17657_1314931968795I</span> <span class="n">heard</span> <span class="n">hello</span> <span class="n">world</span> <span class="mf">1314931974.28</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="p">[</span><span class="n">WallTime</span><span class="p">:</span> <span class="mf">1314931975.283708</span><span class="p">]</span> <span class="o">/</span><span class="n">listener_17657_1314931968795I</span> <span class="n">heard</span> <span class="n">hello</span> <span class="n">world</span> <span class="mf">1314931975.28</span>
+</pre></div>
+</div>
+<p>完成后，按<code class="docutils literal notranslate"><span class="pre">Ctrl+C</span></code>停止listener和talker。</p>
+</section>
+</section>
+<section id="id13">
+<h2>本次培训任务<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h2>
+<p>通过编写发布者节点实现一下小乌龟一定的线速度和角速度作圆周运动
+一些说明：</p>
+<ul class="simple">
+<li><p>小乌龟订阅的话题的类型为<code class="docutils literal notranslate"><span class="pre">turtle1/cmd_vel</span></code>:
+<img alt="../_images/twist.png" src="../_images/twist.png" /></p></li>
+</ul>
 </section>
 </section>
 
