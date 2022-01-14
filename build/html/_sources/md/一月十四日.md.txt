@@ -139,3 +139,8 @@ roslaunch cartographer_ros demo_backpack_2d.launch bag_filename:=${HOME}/Downloa
 ```bash
 
 ```
+
+## 任务
+1. 自行编写`.launch`文件，通过该`launch`启动hector建图节点（或gmapping）与rivz节点
+2. 保存通过hector（或gmapping）包建立的地图
+3. 使用GIMP编辑地图并导出
