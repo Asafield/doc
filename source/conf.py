@@ -64,3 +64,5 @@ source_suffix = {
     '.rst': 'restructuredtext'
 }
 extensions = ['recommonmark']
+
+master_doc = 'index'

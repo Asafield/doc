@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="zh" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SLAM 建图 &mdash; Asafield&#39;s Blog 1.0 文档</title><link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="prev" title="一月十一日培训内容" href="一月十一日.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Asafield's Blog
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">2022年ROS组寒假培训:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="一月九日.html">一月九日</a></li>
+<li class="toctree-l1"><a class="reference internal" href="一月十日.html">一月十日</a></li>
+<li class="toctree-l1"><a class="reference internal" href="一月十一日.html">一月十一日</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">一月十四日</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#gmapping">Gmapping 建图</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hector">hector建图</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cartographer"><strong>Cartographer建图</strong></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Asafield's Blog</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>SLAM 建图</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/md/一月十四日.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="slam">
+<h1>SLAM 建图<a class="headerlink" href="#slam" title="永久链接至标题">¶</a></h1>
+<div class="section" id="gmapping">
+<h2>Gmapping 建图<a class="headerlink" href="#gmapping" title="永久链接至标题">¶</a></h2>
+<p>Gmapping 算法是目前基于激光雷达和里程计方案里面比较可靠和成熟的一个算法，它基于粒子滤波，采用 RBPF 的方法效果稳定，许多基于 ROS 的机器人都跑的是gmapping_slam。这个软件包位于 ros-perception 组织中的 slam_gmapping 仓库中。 其中的 slam_gmapping 是一个 metapackage，它依赖了 gmapping，而算法具体实现都在 gmapping软件包中，该软件包中slam_gmapping 程序就是我们在 ROS 中运行的 SLAM 节点。</p>
+<p>gmapping 的作用是根据激光雷达和里程计（Odometry）的信息，对环境地图进行构建，并且对自身状态进行估计。因此它得输入应当包括激光雷达和里程计的数据，而输出应当有自身位置和地图。</p>
+<ul>
+<li><p class="first">Gmapping 介绍</p>
+</li>
+<li><p class="first">启动 Gmapping</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cannnot launch <span class="nb">type</span> of ... gmapping
+sudo apt install ros-melodic-gmapping
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">roslaunch</span> <span class="pre">racecar_gazebo</span> <span class="pre">racecar_runway.launch</span></code> 启动gazebo仿真环境</p>
+<p><code class="docutils literal notranslate"><span class="pre">roslaunch</span> <span class="pre">racecar_gazebo</span> <span class="pre">slam_gmapping.launch</span></code>启动Gmapping</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">lanch</span></code>文件介绍</p>
+</li>
+<li><p class="first">建图结果：</p>
+<p><img alt="gmapping_result" src="../_images/14_0.png" /></p>
+</li>
+<li><p class="first">使用map_server保存地图：<code class="docutils literal notranslate"><span class="pre">rosrun</span> <span class="pre">map_server</span> <span class="pre">map_saver</span> <span class="pre">-f</span> <span class="pre">your_map_name</span></code></p>
+</li>
+</ul>
+<p><img alt="map_saved" src="../_images/14_1.png" /></p>
+<p>包括一个<code class="docutils literal notranslate"><span class="pre">.pgm</span></code>文件和一个<code class="docutils literal notranslate"><span class="pre">.yaml</span></code>文件</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install ros-melodic-map-server
+siky@SikySuperPC:~$ cat map_gmapping.yaml 
+image: map_gmapping.pgm
+resolution: <span class="m">0</span>.050000
+origin: <span class="o">[</span>-50.000000, -50.000000, <span class="m">0</span>.000000<span class="o">]</span>
+negate: <span class="m">0</span>
+occupied_thresh: <span class="m">0</span>.65
+free_thresh: <span class="m">0</span>.196
+</pre></div>
+</div>
+<ul>
+<li><p class="first">使用<code class="docutils literal notranslate"><span class="pre">GIMP</span></code>编辑<code class="docutils literal notranslate"><span class="pre">.gpm</span></code>文件</p>
+<ul class="simple">
+<li>安装<code class="docutils literal notranslate"><span class="pre">GIMP</span></code></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">gimp</span></code></p>
+<p><strong>注意保存的时候 选择：文件→导出为→选择gpm格式</strong></p>
+<p><img alt="GMIP" src="../_images/14_2.png" /></p>
+</li>
+</ul>
+</div>
+<div class="section" id="hector">
+<h2>hector建图<a class="headerlink" href="#hector" title="永久链接至标题">¶</a></h2>
+<p>Hector SLAM 算法不同于前面两种算法，Hector 只需要激光雷达数据，而不需要里程计数据。这种算法比较适合手持式的激光雷达，并且对激光雷达的扫描频率有一定要求。Hector 算法的效果不如 Gmapping、Karto，因为它仅用到激光雷达信息。这样建图与定位的依据就不如多传感器结合的效果好。但 Hector 适合手持移动或者本身就没有里程计的机器人使用</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install ros-melodic-hector-slam
+rosrun hector_mapping hector_mapping
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!--hector_mapping.launch--&gt;</span>
+<span class="nt">&lt;launch&gt;</span>
+    <span class="nt">&lt;node</span> <span class="na">pkg=</span><span class="s">&quot;hector_mapping&quot;</span> <span class="na">type=</span><span class="s">&quot;hector_mapping&quot;</span> <span class="na">name=</span><span class="s">&quot;hector_mapping&quot;</span> <span class="na">output=</span><span class="s">&quot;screen&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;param</span> <span class="na">name=</span><span class="s">&quot;base_frame&quot;</span> <span class="na">value=</span><span class="s">&quot;base_link&quot;</span><span class="nt">/&gt;</span> <span class="c">&lt;!--机器人底盘坐标系基框架，附带在移动底盘的框架，原点--&gt;</span>
+      <span class="nt">&lt;param</span> <span class="na">name=</span><span class="s">&quot;odom_frame&quot;</span> <span class="na">value=</span><span class="s">&quot;odom&quot;</span><span class="nt">/&gt;</span> <span class="c">&lt;!--里程计坐标系里程计框架，附带在里程计的框架--&gt;</span>
+      <span class="nt">&lt;param</span> <span class="na">name=</span><span class="s">&quot;map_frame&quot;</span> <span class="na">value=</span><span class="s">&quot;map&quot;</span><span class="nt">/&gt;</span> <span class="c">&lt;!--地图坐标系地图框架，附带在地图上的框架--&gt;</span>
+      <span class="nt">&lt;param</span> <span class="na">name=</span><span class="s">&quot;map_resolution&quot;</span> <span class="na">value=</span><span class="s">&quot;0.05&quot;</span><span class="nt">/&gt;</span> 
+      <span class="nt">&lt;param</span> <span class="na">name=</span><span class="s">&quot;map_start_x&quot;</span> <span class="na">value=</span><span class="s">&quot;0.1&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;param</span> <span class="na">name=</span><span class="s">&quot;map_start_y&quot;</span> <span class="na">value=</span><span class="s">&quot;0.1&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;param</span> <span class="na">name=</span><span class="s">&quot;map_pub_period&quot;</span> <span class="na">value=</span><span class="s">&quot;0.1&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/node&gt;</span>
+    <span class="nt">&lt;node</span> <span class="na">pkg=</span><span class="s">&quot;rviz&quot;</span> <span class="na">type=</span><span class="s">&quot;rviz&quot;</span> <span class="na">name=</span><span class="s">&quot;rviz&quot;</span> <span class="na">args=</span><span class="s">&quot;-d $(find racecar_gazebo)/config/new_gmapping.rviz&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/launch&gt;</span>
+</pre></div>
+</div>
+<p><img alt="hactor_result" src="../_images/14_3.png" /></p>
+</div>
+<div class="section" id="cartographer">
+<h2><strong>Cartographer建图</strong><a class="headerlink" href="#cartographer" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://google-cartographer-ros.readthedocs.io/en/latest/index.html">Cartographer ROS Integration - Cartographer ROS documentation</a></p>
+<p><a class="reference external" href="http://community.bwbot.org/topic/620/cartographer-install-and-demo">Cartographer install and demo</a></p>
+<p>安装必要的工具</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ROS Noetic</span>
+sudo apt-get update
+sudo apt-get install -y python3-wstool python3-rosdep ninja-build stow 
+<span class="c1"># ROS Melodic</span>
+sudo apt-get update
+sudo apt-get install -y python-wstool python-rosdep ninja-build stow
+</pre></div>
+</div>
+<p>下载源代码</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir catkin_ws
+<span class="nb">cd</span> catkin_ws
+wstool init src
+wstool merge -t src https://raw.githubusercontent.com/cartographer-project/cartographer_ros/master/cartographer_ros.rosinstall
+wstool update -t src
+</pre></div>
+</div>
+<p>安装依赖</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo rosdep init
+rosdep update
+rosdep install --from-paths src --ignore-src --rosdistro<span class="o">=</span><span class="si">${</span><span class="nv">ROS_DISTRO</span><span class="si">}</span> -y
+</pre></div>
+</div>
+<p>安装<code class="docutils literal notranslate"><span class="pre">abecil-cpp</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>src/cartographer/scripts/install_abseil.sh
+</pre></div>
+</div>
+<p>编译安装</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>catkin_make_isolated --install --use-ninja
+</pre></div>
+</div>
+<p>运行demo程序</p>
+<p>下载对德意志博物馆2D建图 Demo</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget -P ~/Downloads https://storage.googleapis.com/cartographer-public-data/bags/backpack_2d/cartographer_paper_deutsches_museum.bag
+<span class="nb">source</span> install_isolated/setup.bash
+roslaunch cartographer_ros demo_backpack_2d.launch bag_filename:<span class="o">=</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/Downloads/cartographer_paper_deutsches_museum.bag
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="一月十一日.html" class="btn btn-neutral float-left" title="一月十一日培训内容" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, Asafield.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
